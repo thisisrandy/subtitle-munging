@@ -39,7 +39,7 @@ open FILE, "<" . (shift) or die $!;
 die "Must specify non-zero delta" unless ($diff = shift);
 
 while(<FILE>) {
-	if(/(.*)(\d+):(\d+):(\d+)[\.](\d+),(\d+):(\d+):(\d+)[\.](\d+)(.*)/) {
+	if(/(.*)(\d+):(\d+):(\d+)\.(\d+),(\d+):(\d+):(\d+)\.(\d+)(.*)/) {
 		($pre, $h1, $m1, $s1, $hs1, $h2, $m2, $s2, $hs2, $post) = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
 		($h1, $m1, $s1, $hs1) = adjust($diff, $h1, $m1, $s1, $hs1);
 		($h2, $m2, $s2, $hs2) = adjust($diff, $h2, $m2, $s2, $hs2);
