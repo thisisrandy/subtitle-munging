@@ -24,16 +24,17 @@ with open(sys.argv[1]) as f:
             _ = f.readline()
             times = f.readline()
             numbers = re.findall(r"\d+", times)
-            h_l, m_l, s_l = numbers[:3]
+            hms_l = numbers[:3]
             hundreths_l = int(numbers[3]) // 10
-            h_r, m_r, s_r = numbers[4:7]
+            hms_r = numbers[4:7]
             hundreths_r = int(numbers[7]) // 10
             dialog = []
             while line := f.readline().rstrip():
                 dialog.append(line)
             joined_dialog = "\\N".join(dialog)
             print(
-                f"Dialogue: 0,{h_l}:{m_l}:{s_l}.{hundreths_l:02d},{h_r}:{m_r}:{s_r}.{hundreths_r:02d},Default,,0,0,0,,{joined_dialog}"
+                f"Dialogue: 0,{':'.join(hms_l)}.{hundreths_l:02d},"
+                f"{':'.join(hms_l)}.{hundreths_r:02d},Default,,0,0,0,,{joined_dialog}"
             )
         except Exception:
             break
