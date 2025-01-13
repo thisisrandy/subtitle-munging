@@ -32,6 +32,10 @@ with open(sys.argv[1]) as f:
             while line := f.readline().rstrip():
                 dialog.append(line)
             joined_dialog = "\\N".join(dialog)
+            joined_dialog = joined_dialog.replace("<i>", "{\\i1}")
+            joined_dialog = joined_dialog.replace("</i>", "{\\i0}")
+            joined_dialog = joined_dialog.replace("<b>", "{\\b1}")
+            joined_dialog = joined_dialog.replace("</b>", "{\\b0}")
             print(
                 f"Dialogue: 0,{':'.join(hms_l)}.{hundreths_l:02d},"
                 f"{':'.join(hms_l)}.{hundreths_r:02d},Default,,0,0,0,,{joined_dialog}"
