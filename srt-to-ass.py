@@ -38,7 +38,7 @@ with open(sys.argv[1]) as f:
             joined_dialog = joined_dialog.replace("</b>", "{\\b0}")
             print(
                 f"Dialogue: 0,{':'.join(hms_l)}.{hundreths_l:02d},"
-                f"{':'.join(hms_l)}.{hundreths_r:02d},Default,,0,0,0,,{joined_dialog}"
+                f"{':'.join(hms_r)}.{hundreths_r:02d},Default,,0,0,0,,{joined_dialog}"
             )
         except Exception:
             break
