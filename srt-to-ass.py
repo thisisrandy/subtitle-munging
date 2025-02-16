@@ -2,8 +2,8 @@
 import sys
 import re
 
-if len(sys.argv) != 2:
-    print("USAGE: srt-to-ass.py <srt file>")
+if not (2 <= len(sys.argv) <= 3):
+    print("USAGE: srt-to-ass.py <srt file> [file encoding]")
     exit(1)
 
 print("""[Script Info]
@@ -18,7 +18,7 @@ Style: Default,Arial,25,&Hffffff,&Hffffff,&H0,&H0,0,0,0,0,100,100,0,0,1,1,0,2,10
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text""")
-with open(sys.argv[1]) as f:
+with open(sys.argv[1], encoding=sys.argv[2] or "utf-8") as f:
     while True:
         try:
             _ = f.readline()
