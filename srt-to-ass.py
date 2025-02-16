@@ -18,7 +18,7 @@ Style: Default,Arial,25,&Hffffff,&Hffffff,&H0,&H0,0,0,0,0,100,100,0,0,1,1,0,2,10
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text""")
-with open(sys.argv[1], encoding=sys.argv[2] or "utf-8") as f:
+with open(sys.argv[1], encoding=len(sys.argv) == 3 and sys.argv[2] or "utf-8") as f:
     while True:
         try:
             _ = f.readline()
