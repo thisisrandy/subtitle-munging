@@ -18,6 +18,8 @@ Style: Default,Arial,25,&Hffffff,&Hffffff,&H0,&H0,0,0,0,0,100,100,0,0,1,1,0,2,10
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text""")
+# NOTE: Some files may start with EF BB BF, which is a BOM. If this is causing
+# problems, try using utf-8-sig as the encoding
 with open(sys.argv[1], encoding=len(sys.argv) == 3 and sys.argv[2] or "utf-8") as f:
     while True:
         try:
