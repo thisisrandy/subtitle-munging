@@ -22,6 +22,13 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"
 # problems, try using utf-8-sig as the encoding
 with open(sys.argv[1], encoding=len(sys.argv) == 3 and sys.argv[2] or "utf-8") as f:
     while True:
+        pos = f.tell()
+        if len(f.readline().rstrip()) == 0:
+            continue
+        else:
+            f.seek(pos)
+            break
+    while True:
         try:
             _ = f.readline()
             times = f.readline()
